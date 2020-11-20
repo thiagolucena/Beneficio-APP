@@ -1,0 +1,51 @@
+<div class="d-flex">
+  <div class="form-inline mr-auto">
+    <div class="form-group mb-2">
+      <input type="text" class="form-control mr-2" #txtMatricula placeholder="Matricula" [(ngModel)]="filtroConsulta">
+      <button class="btn btn-outline-primary" [disabled]="!(filtroConsulta != '')" (click)="consultaServidor(txtMatricula.value)">
+        <i class="fa fa-search"></i>&nbsp;
+        Buscar
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="form-row">
+  <div class="form-group col-md-8">
+    <label>Nome Servidor</label>
+    <input readonly type="text" class="form-control"  placeholder="Nome" [(ngModel)]="servidor.nome">        
+  </div>
+  <div class="form-group col-md-4">
+    <label>CPF</label>
+    <input readonly type="text" class="form-control" placeholder="CPF" [(ngModel)]="servidor.cpf" >
+  </div>
+</div>  
+<div class="form-row">
+  <div class="form-group col-md-3">
+    <label>Matricula</label>
+    <input readonly type="text" class="form-control" placeholder="Matricula" [(ngModel)]="servidor.matricula">       
+  </div>
+  <div class="form-group col-md-3">
+    <label>Orgao</label>
+    <select  class="form-control" [(ngModel)]="orgaoId">
+      <option *ngFor="let item of orgao" value={{item.id}}>
+        {{item.descricao}}
+      </option>
+  </select>
+  </div>
+  <div class="form-group col-md-3">
+    <label>Setor</label>
+    <select disabled class="form-control" [(ngModel)]="setorId">
+      <option *ngFor="let item of setor" value= {{item.id}}>
+        {{item.descricao}}
+      </option>
+    </select>
+  </div> 
+</div>
+<div class="form-row">
+  <div class="form-group col-md-6">          
+    <button class="btn btn-primary" (click)="cadastrarBeneficio()">
+      Cadastrar
+    </button>
+  </div>
+</div>
